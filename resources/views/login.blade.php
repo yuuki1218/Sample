@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>ログイン画面</h1>
+    <h2>ログイン画面</h2>
     <div class="container">
         <form class="login-form">
             <table>
