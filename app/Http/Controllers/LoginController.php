@@ -7,12 +7,25 @@ use Illuminate\Support\Facades\View;
 
 class LoginController extends Controller
 {
-    public function login()
+    //ログイン画面
+    public function loginShow()
     {
         return view('login');
     }
-    public function register()
+    //新規登録画面
+    public function registerShow()
     {
         return view('register');
+    }
+    //新規登録画面の登録
+    public function register(Request $request)
+    {
+        $userName = $request->input('name');
+        return redirect('home', ['userName' => $userName]);
+    }
+    //HOME画面
+    public function homeShow()
+    {
+        return view('home');
     }
 }

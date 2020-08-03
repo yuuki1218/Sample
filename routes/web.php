@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function ()
-{
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', 'LoginController@login');
-Route::get('register' , 'LoginController@register');
+Route::get('login', 'LoginController@loginShow');
+Route::get('register', 'LoginController@registerShow');
+Route::match(['get', 'post'], 'register', 'LoginController@register');
+Route::get('home', 'LoginController@homeShow');
+Route::get('sample', 'TodoController@show');
+Route::post('sample', 'TodoController@add');
