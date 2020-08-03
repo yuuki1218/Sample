@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
+use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
@@ -20,8 +20,10 @@ class LoginController extends Controller
     //新規登録画面の登録
     public function register(Request $request)
     {
+        $this->validate($request, ['name' => 'required','mail-address' => 'required', 'password' => 'required|min:7','password_confirmation' => 'required|same:password']);
+
         $userName = $request->input('name');
-        return redirect('home', ['userName' => $userName]);
+        return view('home', ['userName' => $userName]);
     }
     //HOME画面
     public function homeShow()

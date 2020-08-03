@@ -4,8 +4,15 @@
 @section('content')
     <h1>新規登録画面</h1>
     <div class="container">
-        <form action="{{ action('LoginController@register') }}" method="POST" enctype="multipart/form-data">
+        <form action="register" method="POST" enctype="multipart/form-data">
             @csrf
+            @if (count($errors) > 0)
+                <ul>
+                    @foreach ($errors->all() as $e)
+                        <li>{{ $e }}</li>
+                    @endforeach
+                </ul>
+            @endif
             <table>
                 <tr>
                     <td>
@@ -28,7 +35,7 @@
                 <tr>
                     <td>
                         <label for="confirm-password">パスワード再確認</label>
-                        <input type="text" name="confirm-password">
+                        <input type="text" name="password_confirmation">
                     </td>
                 </tr>
             </table>

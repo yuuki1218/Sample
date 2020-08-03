@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('login', 'LoginController@loginShow');
 Route::get('register', 'LoginController@registerShow');
-Route::match(['get', 'post'], 'register', 'LoginController@register');
+Route::post('register', 'LoginController@register');
 Route::get('home', 'LoginController@homeShow');
 Route::get('sample', 'TodoController@show');
 Route::post('sample', 'TodoController@add');
