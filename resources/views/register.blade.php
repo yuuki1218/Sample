@@ -15,31 +15,39 @@
             @endif
             <table>
                 <tr>
-                    <td>
+                    <th>
                         <label for="name">名前</label>
+                    </th>
+                    <td>
                         <input type="text" name="name">
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <th>
                         <label for="mail-address">メールアドレス</label>
+                    </th>
+                    <td>
                         <input type="text" name="mail-address">
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <th>
                         <label for="password">パスワード</label>
+                    </th>
+                    <td>
                         <input type="text" name="password">
                     </td>
                 </tr>
                 <tr>
+                    <th>
+                        <label for="password_confirmation">パスワード再確認</label>
+                    </th>
                     <td>
-                        <label for="confirm-password">パスワード再確認</label>
                         <input type="text" name="password_confirmation">
                     </td>
                 </tr>
             </table>
-            <div class="row">
+            <div class="form-button">
                 <input type="submit" value="登録">
             </div>
         </form>

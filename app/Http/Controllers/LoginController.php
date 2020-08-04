@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRule;
 
 class LoginController extends Controller
 {
@@ -18,10 +19,8 @@ class LoginController extends Controller
         return view('register');
     }
     //新規登録画面の登録
-    public function register(Request $request)
+    public function register(RegisterRule $request)
     {
-        $this->validate($request, ['name' => 'required','mail-address' => 'required', 'password' => 'required|min:7','password_confirmation' => 'required|same:password']);
-
         $userName = $request->input('name');
         return view('home', ['userName' => $userName]);
     }
