@@ -21,5 +21,6 @@ Route::get('login', 'LoginController@loginShow');
 Route::get('register', 'LoginController@registerShow');
 Route::post('register', 'LoginController@register');
 Route::get('home', 'LoginController@homeShow');
-Route::get('sample', 'TodoController@show');
-Route::post('sample', 'TodoController@add');
+Route::get('todo', 'TodoController@show');
+Route::post('todo', 'TodoController@add');
+Route::post('todo/delete', 'TodoController@delete');

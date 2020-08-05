@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+.navbar-area {
+    background-color: lightgray;
+    padding: 15px;
+    height: 30px;
+}
+.user-button {
+    float: right;
+    margin: 7px 0 0 0;
+}
+.login-button {
+    float: left;
+    border: 2px solid;
+    color: black;
+    background-color: whitesmoke;
+    padding: 3px;
+}
+.login-button :hover {
+    background-color: black;
+    color: whitesmoke;
+    transition: 1s;
+}
+a {
+    text-decoration: none;
+}
+h1 {
+    text-align: center;
+}
+.container {
+    text-align: center;
+}
+table {
+    border: 1px solid;
+    margin: auto;
+    padding: 20px;
+    border-radius: 30px;
+}
+.task-form {
+    margin: 20px 0 0 0;
+}
