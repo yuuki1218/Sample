@@ -20,7 +20,7 @@
                 </tr>
                 @foreach ($tasks as $to)
                     <tr>
-                        <td>{{ $to->id }}</td>
+                        <td>{{ $loop->index }}</td>
                         <td>{{ $to->to }}</td>
                         <td><input type="submit" value="{{ $to->status }}"></td>
                         <form action="{{ action('TodoController@delete') }}" method="POST" enctype="multipart/form-data">
