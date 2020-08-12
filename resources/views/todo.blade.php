@@ -21,8 +21,10 @@
                 @foreach ($tasks as $to)
                     <tr>
                         <td>{{ $loop->index }}</td>
-                        <td>{{ $to->to }}</td>
-                        <td><input type="submit" value="{{ $to->status }}"></td>
+                        <td>{{ $to->task }}</td>
+                        <td>
+                            <input type="button" class="status-button" value="{{ $to->status }}">
+                        </td>
                         <form action="{{ action('TodoController@delete') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id" value="{{ $to->id }}">
@@ -39,6 +41,13 @@
                     <input type="text" name="task">
                     <input type="submit">
                 </form>
+                @if (count($errors) > 0)
+                    <ul>
+                        @foreach ($errors->all() as $e)
+                            <li>{{ $e }}</li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
         </div>
     </div>
