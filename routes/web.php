@@ -24,3 +24,7 @@ Route::get('home', 'LoginController@homeShow');
 Route::get('todo', 'TodoController@show');
 Route::post('todo', 'TodoController@add');
 Route::post('todo/delete', 'TodoController@delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
