@@ -5,9 +5,9 @@
         <h1>TodoList</h1>
         <div class="status-form">
             <p>
-                <input type="radio" name="status" value="1" checked="checked">すべて
-                <input type="radio" name="status" value="2">作業中
-                <input type="radio" name="status" value="3">完了
+                <input type="radio" class="search" id="all" data="" name="status" value="all" checked="checked">すべて
+                <input type="radio" class="search" id="作業中" data="作業中" name="status" value="作業中">作業中
+                <input type="radio" class="search" id="完了" data="完了" name="status" value="完了">完了
             </p>
         </div>
         <div class="list">
@@ -18,16 +18,16 @@
                     <th>状態</th>
                     <th>削除</th>
                 </tr>
-                @foreach ($tasks as $to)
-                    <tr>
+                @foreach ($tasks as $task)
+                    <tr data-status="作業中">
                         <td>{{ $loop->index }}</td>
-                        <td>{{ $to->task }}</td>
+                        <td>{{ $task->task }}</td>
                         <td>
-                            <input type="button" class="status-button" value="{{ $to->status }}">
+                            <input type="button" class="status-button" value="{{ $task->status }}">
                         </td>
                         <form action="{{ action('TodoController@delete') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $to->id }}">
+                            <input type="hidden" name="id" value="{{ $task->id }}">
                             <td><input type="submit" value="削除"></td>
                         </form>
                     </tr>
@@ -41,13 +41,6 @@
                     <input type="text" name="task">
                     <input type="submit">
                 </form>
-                @if (count($errors) > 0)
-                    <ul>
-                        @foreach ($errors->all() as $e)
-                            <li>{{ $e }}</li>
-                        @endforeach
-                    </ul>
-                @endif
             </div>
         </div>
     </div>
