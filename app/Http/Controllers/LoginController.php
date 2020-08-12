@@ -9,12 +9,12 @@ use App\Http\Requests\RegisterRule;
 class LoginController extends Controller
 {
     //ログイン画面
-    public function loginShow()
+    public function loginIndex()
     {
         return view('login');
     }
     //新規登録画面
-    public function registerShow()
+    public function registerIndex()
     {
         return view('register');
     }

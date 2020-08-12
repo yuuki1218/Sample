@@ -3,6 +3,6 @@
 @section('content')
     <div class="container">
         <h1>ホーム画面</h1>
-        <p>you are logged in!</p>
+        <p class="message-success">you are logged in!</p>
     </div>
 @endsection

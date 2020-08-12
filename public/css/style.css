@@ -28,8 +28,15 @@ a {
 h1 {
     text-align: center;
 }
-.container {
+p.message-success {
+    margin: 20px 25rem;
     text-align: center;
+    padding: 30px;
+    border: 1px solid;
+    border-radius: 30px;
+}
+.container {
+    margin: 20px;
 }
 table {
     border: 1px solid;
@@ -37,9 +44,15 @@ table {
     padding: 20px;
     border-radius: 30px;
 }
-.task-form {
-    margin: 20px 0 0 0;
+th {
+    padding: 10px;
 }
-#status-button{
-    cursor: pointer;
+input[type="text"] {
+    padding: 4px;
+    border-radius: 8px;
 }
+.form-button {
+    text-align: right;
+    margin: 20px 47rem;
+}
+

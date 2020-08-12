@@ -1,4 +1,4 @@
-@extends('layouts.sample')
+@extends('layouts.todo')
 @section('title', 'TODOリスト')
 @section('content')
     <div class="container">
