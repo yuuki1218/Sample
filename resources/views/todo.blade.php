@@ -22,9 +22,14 @@
                     <tr data-status="作業中">
                         <td>{{ $loop->index }}</td>
                         <td>{{ $task->task }}</td>
-                        <td>
-                            <input type="button" class="status-button" value="{{ $task->status }}">
-                        </td>
+                        <form action="{{ action('TodoController@update', ['id' => $task->id]) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <td>
+                                <input type="hidden" name="_method" value="PATCH">
+                                <input type="submit" class="status-button" value="{{ $task->status }}">
+                            </td>
+                        </form>
                         <form action="{{ action('TodoController@delete') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id" value="{{ $task->id }}">

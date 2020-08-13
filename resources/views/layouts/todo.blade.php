@@ -10,7 +10,6 @@
     <title>@yield('title')</title>
     <link href="{{ asset('css/sample.css') }}" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ asset('js/todo.js') }}"></script>
 
 </head>
 

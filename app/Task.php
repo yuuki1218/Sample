@@ -7,4 +7,5 @@ use Illuminate\Support\Facades\DB;
 
 class Task extends Model
 {
+    protected $fillable = ['status'];
 }

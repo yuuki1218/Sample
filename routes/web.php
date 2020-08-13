@@ -27,7 +27,4 @@ Route::get('home', 'LoginController@homeShow');
 Route::get('todo', 'TodoController@index');
 Route::post('todo', 'TodoController@add');
 Route::post('todo/delete', 'TodoController@delete');
-
-Route::get('sample', 'SampleController@index');
-Route::post('sample', 'SampleController@add');
-Route::post('sample/delete', 'SampleController@delete');
+Route::patch('todo/update/{id}', 'TodoController@update');
