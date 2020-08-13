@@ -22,8 +22,20 @@ class TodoController extends Controller
     }
     public function delete(Request $request)
     {
-        $article = Task::find($request->id);
-        $article->delete();
+        $task = Task::find($request->id);
+        $task->delete();
+        return redirect('todo');
+    }
+    public function update($id)
+    {
+        $task = Task::findOrFail($id);
+        if ($task->status == "作業中") {
+            $task->update(['status' => '完了']);
+            $task->save();
+        } else {
+            $task->update(['status' => '作業中']);
+            $task->save();
+        }
         return redirect('todo');
     }
 }
