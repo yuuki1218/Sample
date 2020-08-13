@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use App\Http\Requests\TaskRules;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
+
+use function GuzzleHttp\Promise\all;
 
 class TodoController extends Controller
 {
@@ -38,5 +42,17 @@ class TodoController extends Controller
             $task->save();
         }
         return redirect('todo');
+    }
+    public function showStatus(Request $request)
+    {
+        $val = $request->input('status');
+        if ($val == "完了") {
+            $tasks = DB::table('tasks')->where('status', '完了')->get();
+        } elseif ($val == "作業中") {
+            $tasks = DB::table('tasks')->where('status', '作業中')->get();
+        } else {
+            $tasks = DB::table('tasks')->get();
+        }
+        return view('todo', ['tasks' => $tasks]);
     }
 }

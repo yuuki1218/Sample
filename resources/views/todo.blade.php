@@ -5,9 +5,12 @@
         <h1>TodoList</h1>
         <div class="status-form">
             <p>
-                <input type="radio" class="search" id="all" data="" name="status" value="all" checked="checked">すべて
-                <input type="radio" class="search" id="作業中" data="作業中" name="status" value="作業中">作業中
-                <input type="radio" class="search" id="完了" data="完了" name="status" value="完了">完了
+            <form action="{{ action('TodoController@showStatus') }}" method="GET">
+                @csrf
+                <button type="radio" class="search" name="status" value="all" checked="checked">すべて</button>
+                <button type="radio" class="search" name="status" value="作業中">作業中</button>
+                <button type="radio" class="search" name="status" value="完了">完了</button>
+            </form>
             </p>
         </div>
         <div class="list">
