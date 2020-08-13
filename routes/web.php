@@ -29,3 +29,7 @@ Route::post('todo', 'TodoController@add');
 Route::post('todo/delete', 'TodoController@delete');
 Route::patch('todo/update/{id}', 'TodoController@update');
 Route::get('todo/showStatus', 'TodoController@showStatus');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
