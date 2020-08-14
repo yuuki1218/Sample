@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Task;
 use App\Http\Requests\TaskRules;
 use Illuminate\Support\Facades\DB;
+use App\Enums\TaskStatus;
 use Illuminate\Support\Facades\Redis;
 
 use function GuzzleHttp\Promise\all;
@@ -31,10 +32,12 @@ class TodoController extends Controller
         $task->delete();
         return redirect('todo');
     }
-    public function update($id)
+
+    public function update($id, $status)
     {
         $task = Task::findOrFail($id);
-        if ($task->status == "作業中") {
+
+        if ($status == TaskStatus::Moving) {
             $task->update(['status' => '完了']);
             $task->save();
         } else {
