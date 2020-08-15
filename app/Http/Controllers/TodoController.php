@@ -33,25 +33,18 @@ class TodoController extends Controller
         return redirect('todo');
     }
 
-    public function update($id, $status)
+    public function update($id)
     {
         $task = Task::findOrFail($id);
-
-        if ($status == TaskStatus::Moving) {
-            $task->update(['status' => '完了']);
-            $task->save();
-        } else {
-            $task->update(['status' => '作業中']);
-            $task->save();
-        }
+        $task->status ? $task->update(['status' => 0]): $task->update(['status' => 1]) ;
         return redirect('todo');
     }
     public function showStatus(Request $request)
     {
         $val = $request->input('status');
-        if ($val == "完了") {
+        if ($val == TaskStatus::Finish) {
             $tasks = DB::table('tasks')->where('status', '完了')->get();
-        } elseif ($val == "作業中") {
+        } elseif ($val == TaskStatus::Moving) {
             $tasks = DB::table('tasks')->where('status', '作業中')->get();
         } else {
             $tasks = DB::table('tasks')->get();
