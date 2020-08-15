@@ -42,10 +42,10 @@ class TodoController extends Controller
     public function showStatus(Request $request)
     {
         $val = $request->input('status');
-        if ($val == TaskStatus::Finish) {
-            $tasks = DB::table('tasks')->where('status', '完了')->get();
-        } elseif ($val == TaskStatus::Moving) {
-            $tasks = DB::table('tasks')->where('status', '作業中')->get();
+        if ($val == 0) {
+            $tasks = DB::table('tasks')->where('status', 0)->get();
+        } elseif ($val == 1) {
+            $tasks = DB::table('tasks')->where('status', 1)->get();
         } else {
             $tasks = DB::table('tasks')->get();
         }

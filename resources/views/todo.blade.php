@@ -7,9 +7,9 @@
             <p>
             <form action="{{ action('TodoController@showStatus') }}" method="GET">
                 @csrf
-                <button type="radio" class="search" name="status" value="all" checked="checked">すべて</button>
-                <button type="radio" class="search" name="status" value="作業中">作業中</button>
-                <button type="radio" class="search" name="status" value="完了">完了</button>
+                <button type="radio" class="search" name="status" value=2 checked="checked">すべて</button>
+                <button type="radio" class="search" name="status" value=1>作業中</button>
+                <button type="radio" class="search" name="status" value=0>完了</button>
             </form>
             </p>
         </div>
