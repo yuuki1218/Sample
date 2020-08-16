@@ -17,7 +17,7 @@
     <div class="navbar-area">
         <nav class="navbar navbar-dark">
             <div class="login-button">
-                <a href="{{ action('LoginController@loginIndex') }}">ログイン画面</a>
+                <a href="#">ログイン画面</a>
             </div>
         </nav>
     </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,16 @@ Route::post('todo', 'TodoController@add');
 Route::post('todo/delete', 'TodoController@delete');
 Route::patch('todo/update/{id}', 'TodoController@update');
 Route::get('todo/showStatus', 'TodoController@showStatus');
+
+//投稿アプリのルーティング
+Route::get('news', 'NewsController@index')->name('news.index');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('news/create', 'NewsController@create')->name('news.create');
+    Route::post('news/create/store', 'NewsController@store');
+    Route::get('news/edit/{id}', 'NewsController@edit');
+    Route::post('news/edit/{id}/update', 'NewsController@update');
+    Route::post('news/delete', 'NewsController@delete');
+});
 
 Auth::routes();
 

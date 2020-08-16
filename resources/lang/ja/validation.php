@@ -146,7 +146,13 @@ return [
         'mail-address' => 'メールアドレス',
         'password' => 'パスワード',
         'password_confirmation' => '確認用パスワード',
-        'task' => 'コメント'
+
+        //Todoアプリ
+        'task' => 'コメント',
+
+        //投稿アプリ
+        'title' => 'タイトル',
+        'body' => 'コンテンツ',
         ],
 
 ];
