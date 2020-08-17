@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewsRules;
 use App\News;
-use App\Like;
+use App\User;
 
 class NewsController extends Controller
 {
@@ -33,7 +33,7 @@ class NewsController extends Controller
         $post = News::findOrFail($id);
         return view('news.edit', ['post' => $post]);
     }
-    public function update(Request $request, $id)
+    public function update(NewsRules $request, $id)
     {
         $posts = News::findOrFail($id);
         $form = $request->all();
@@ -45,6 +45,6 @@ class NewsController extends Controller
     {
         $post = News::find($request->id);
         $post->delete();
-        return redirect('news.index');
+        return redirect('news');
     }
 }

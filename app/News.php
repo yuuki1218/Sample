@@ -13,8 +13,8 @@ class News extends Model
     {
         return $this->belongsTo('App\User');
     }
-    public function likes()
+    public function users()
     {
-        return $this->hasMany('App\Like', 'news_id');
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 }

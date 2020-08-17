@@ -39,6 +39,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('news/edit/{id}', 'NewsController@edit');
     Route::post('news/edit/{id}/update', 'NewsController@update');
     Route::post('news/delete', 'NewsController@delete');
+
+    //良いね機能
+    Route::post('news/{post}/like', 'LikeController@store')->name('like');
+    Route::post('news/{post}/unlike', 'LikeController@delete')->name('unlike');
 });
 
 Auth::routes();

@@ -25,12 +25,40 @@
                                     </form>
                                 </div>
                                 <div class="author-item">
-                                    <form action="{{ action('NewsController@delete') }}" method="POST">
+                                    <form action="{{ action('NewsController@delete') }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $post->id }}">
                                         <input class="delete-button" type="submit" value="削除">
                                     </form>
                                 </div>
                             @endif
                         @endguest
+                        <div class="like-area">
+                            @if ($post
+            ->users()
+            ->where('user_id', Auth::id())
+            ->exists())
+                                <form action="{{ action('LikeController@delete', ['post' => $post]) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="like-icon">
+                                        <input type="submit" value="&#xf004" class="fas heart-icon heart_red">
+                                    </div>
+                                </form>
+                            @else
+                                <form action="{{ action('LikeController@store', ['post' => $post]) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="like-icon">
+                                        <input type="submit" value="&#xf004" class="far heart-icon">
+                                    </div>
+                                </form>
+                            @endif
+                        </div>
+                        <div class="like-count">
+                            <p>{{ $post->users()->count() }}</p>
+                        </div>
                     </div>
                 @endforeach
             </div>
