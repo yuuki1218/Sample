@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 use App\Task;
 use App\Http\Requests\TaskRules;
 use Illuminate\Support\Facades\DB;
-use App\Enums\TaskStatus;
-use Illuminate\Support\Facades\Redis;
-
-use function GuzzleHttp\Promise\all;
 
 class TodoController extends Controller
 {
@@ -36,7 +32,9 @@ class TodoController extends Controller
     public function update($id)
     {
         $task = Task::findOrFail($id);
-        $task->status ? $task->update(['status' => 0]): $task->update(['status' => 1]) ;
+        $isStatus = $task->status;
+        $task->status = !$isStatus;
+        $task->update();
         return redirect('todo');
     }
     public function showStatus(Request $request)
