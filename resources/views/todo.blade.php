@@ -28,7 +28,7 @@
                         <form action="{{ action('TodoController@update', ['id' => $task->id]) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-                            @if ($task->status == 1)
+                            @if ($task->status)
                                 <td>
                                     <input type="hidden" name="_method" value="PATCH">
                                     <input type="submit" class="status-button" value="作業中">
@@ -42,6 +42,7 @@
                         </form>
                         <form action="{{ action('TodoController@delete') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            {{ method_field('delete') }}
                             <input type="hidden" name="id" value="{{ $task->id }}">
                             <td><input type="submit" value="削除"></td>
                         </form>
