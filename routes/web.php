@@ -35,10 +35,10 @@ Route::get('todo/showStatus', 'TodoController@showStatus');
 Route::get('news', 'NewsController@index')->name('news.index');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('news/create', 'NewsController@create')->name('news.create');
-    Route::post('news/create/store', 'NewsController@store');
+    Route::post('news/create', 'NewsController@store');
     Route::get('news/edit/{id}', 'NewsController@edit');
-    Route::post('news/edit/{id}/update', 'NewsController@update');
-    Route::post('news/delete', 'NewsController@delete');
+    Route::post('news/edit/{id}', 'NewsController@update');
+    Route::post('news', 'NewsController@delete');
 
     //良いね機能
     Route::post('news/{post}/like', 'LikeController@store')->name('like');

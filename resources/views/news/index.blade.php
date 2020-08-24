@@ -28,6 +28,7 @@
                                     <form action="{{ action('NewsController@delete') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
+                                        {{ method_field('delete') }}
                                         <input type="hidden" name="id" value="{{ $post->id }}">
                                         <input class="delete-button" type="submit" value="削除">
                                     </form>
