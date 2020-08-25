@@ -12,13 +12,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/news.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/news.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -42,6 +43,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ route('news.index') }}">みんなの投稿</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('news.create') }}">投稿作成</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -60,8 +63,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -76,7 +80,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
             @if (count($errors) > 0)

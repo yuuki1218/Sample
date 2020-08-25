@@ -43,7 +43,7 @@ class NewsController extends Controller
     }
     public function delete(Request $request)
     {
-        $post = News::find($request->id);
+        $post = News::findOrFail($request->id);
         $post->delete();
         return redirect('news');
     }
