@@ -1,39 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.admin')
+@section('title', 'ログイン画面')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ログイン画面</title>
-</head>
-
-<body>
+@section('content')
     <h1>ログイン画面</h1>
     <div class="container">
         <form class="login-form">
             <table>
                 <tr>
+                    <th>
+                        <label for="mail-address">メールアドレス</label>
+                    </th>
                     <td>
-                        <div class="col">
-                            <label for="mail-address">メールアドレス</label>
-                            <input type="text" name="mail-address">
-                        </div>
+                        <input type="text" name="mail-address">
                     </td>
                 </tr>
                 <tr>
+                    <th>
+                        <label for="password">パスワード</label>
+                    </th>
                     <td>
-                    <div class="col">
-                    <label for="password">パスワード</label>
-                    <input type="text" name="password">
-                    </div>
+                        <input type="text" name="password">
                     </td>
                 </tr>
             </table>
-                <div class="col">
-                    <input type="submit" value="ログイン">
-                </div>
+            <div class="form-button">
+                <input type="submit" value="ログイン">
+            </div>
         </form>
     </div>
-</body>
-</html>
+@endsection

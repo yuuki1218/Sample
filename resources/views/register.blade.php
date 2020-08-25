@@ -1,54 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.admin')
+@section('title', '新規登録画面')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>新規登録画面</title>
-</head>
-
-<body>
+@section('content')
     <h1>新規登録画面</h1>
     <div class="container">
-        <form class="register-form">
+        <form action="register" method="POST" enctype="multipart/form-data">
+            @csrf
+            @if (count($errors) > 0)
+                <ul>
+                    @foreach ($errors->all() as $e)
+                        <li>{{ $e }}</li>
+                    @endforeach
+                </ul>
+            @endif
             <table>
                 <tr>
+                    <th>
+                        <label for="name">名前</label>
+                    </th>
                     <td>
-                        <div class="col">
-                            <label for="name">名前</label>
-                            <input type="text" name="name">
-                        </div>
+                        <input type="text" name="name">
                     </td>
                 </tr>
                 <tr>
+                    <th>
+                        <label for="mail-address">メールアドレス</label>
+                    </th>
                     <td>
-                    <div class="col">
-                            <label for="mail-address">メールアドレス</label>
-                            <input type="text" name="mail-address">
-                        </div>
+                        <input type="text" name="mail-address">
                     </td>
                 </tr>
                 <tr>
+                    <th>
+                        <label for="password">パスワード</label>
+                    </th>
                     <td>
-                        <div class="col">
-                            <label for="password">パスワード</label>
-                            <input type="text" name="password">
-                        </div>
+                        <input type="text" name="password">
                     </td>
                 </tr>
                 <tr>
+                    <th>
+                        <label for="password_confirmation">パスワード再確認</label>
+                    </th>
                     <td>
-                        <div class="col">
-                            <label for="confirm-password">パスワード再確認</label>
-                            <input type="text" name="confirm-password">
-                        </div>
+                        <input type="text" name="password_confirmation">
                     </td>
                 </tr>
             </table>
-            <div class="col">
-                <a type="submit" class="btn btn-primary" href="{{ action('LoginController@login') }}">登録</a>
+            <div class="form-button">
+                <input type="submit" value="登録">
             </div>
         </form>
-</body>
-</html>
+    @endsection

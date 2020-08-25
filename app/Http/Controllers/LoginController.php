@@ -3,16 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRule;
 
 class LoginController extends Controller
 {
-    public function login()
+    //ログイン画面
+    public function loginIndex()
     {
         return view('login');
     }
-    public function register()
+    //新規登録画面
+    public function registerIndex()
     {
         return view('register');
+    }
+    //新規登録画面の登録
+    public function register(RegisterRule $request)
+    {
+        $userName = $request->input('name');
+        return view('home', ['userName' => $userName]);
+    }
+    //HOME画面
+    public function homeShow()
+    {
+        return view('home');
     }
 }
